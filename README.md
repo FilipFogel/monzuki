@@ -40,8 +40,18 @@ finns med och matchar källfilerna.
 Ladda ner `elemental-duel-0.2.<körningsnummer>-debug` under **Artifacts** i en
 lyckad körning, packa upp ZIP-filen och installera APK:n på Android.
 Artefakten sparas i 30 dagar. Detta är en debugversion för testning, inte en
-Google Play-release. GitHub-runnern skapar en debugnyckel för bygget; om nästa
-bygge har en annan signatur behöver den gamla appen avinstalleras först.
+Google Play-release. Alla testbyggen använder samma fasta debugnyckel i
+`android-app/signing/debug.keystore`. Nästa APK kan därför installeras som en
+uppdatering med bibehållen appdata. Versionsnumret ökar automatiskt.
+
+Version 0.2.1 och 0.2.2 använde tillfälliga runner-nycklar som inte sparades.
+De måste avinstalleras en sista gång innan den första versionen med den fasta
+nyckeln installeras. Avinstallation tar bort appens lokala data.
+
+Nyckeln i repot är avsiktligt offentlig och endast för testbyggen (lösenord
+`android`). Den ger ingen säker identitet för en produktionsapp. Använd en
+separat privat nyckel och separat applicationId för en framtida produktionsapp.
+Byt inte testnyckeln: det bryter uppdateringar för installerade testversioner.
 
 ## Filer
 

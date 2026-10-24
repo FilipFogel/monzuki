@@ -65,6 +65,12 @@ jobs:
         run: |
           "$ANDROID_HOME/build-tools/34.0.0/apksigner" verify --verbose \
             android-app/app/build/outputs/apk/debug/app-debug.apk
+          expected=$(keytool -exportcert -keystore android-app/signing/debug.keystore \
+            -storepass android -alias androiddebugkey | sha256sum | cut -d ' ' -f 1)
+          actual=$("$ANDROID_HOME/build-tools/34.0.0/apksigner" verify --print-certs \
+            android-app/app/build/outputs/apk/debug/app-debug.apk | \
+            sed -n 's/^Signer #1 certificate SHA-256 digest: //p')
+          test "$actual" = "$expected" || { echo "Unexpected signing certificate"; exit 1; }
           python3 - <<'PY'
           import json
           import os
@@ -113,6 +119,6 @@ jobs:
             echo "### Elemental Duel ${VERSION_NAME}"
             echo "[Download APK artifact](${ARTIFACT_URL})"
             echo
-            echo "Installable debug APK, signed with the runner's debug key."
+            echo "Installable debug APK, signed with the stable repository test key."
             echo "Commit: ${GITHUB_SHA}"
           } >> "$GITHUB_STEP_SUMMARY"
