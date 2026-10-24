@@ -4,7 +4,7 @@
     "name": "Cindervyx",
     "element": "fire",
     "maxHp": 10,
-    "image": "art/cindervyx.webp",
+    "image": "art/glodraven-full.png",
     "attacks": [
       {
         "name": "Ember Bite",
@@ -23,7 +23,7 @@
     "name": "Aqualune",
     "element": "water",
     "maxHp": 10,
-    "image": "art/aqualune.webp",
+    "image": "art/aqualune-full.webp",
     "attacks": [
       {
         "name": "Water Splash",
@@ -42,7 +42,7 @@
     "name": "Terranox",
     "element": "earth",
     "maxHp": 12,
-    "image": "art/terranox.webp",
+    "image": "art/terranox-full.webp",
     "attacks": [
       {
         "name": "Rock Toss",
@@ -61,7 +61,7 @@
     "name": "Zephyrax",
     "element": "air",
     "maxHp": 10,
-    "image": "art/zephyrax.webp",
+    "image": "art/zephyrax-full.webp",
     "attacks": [
       {
         "name": "Gust",
@@ -80,7 +80,7 @@
     "name": "Florami",
     "element": "nature",
     "maxHp": 10,
-    "image": "art/florami.webp",
+    "image": "art/florami-full.webp",
     "attacks": [
       {
         "name": "Leaf Touch",
@@ -99,7 +99,7 @@
     "name": "Voltique",
     "element": "lightning",
     "maxHp": 10,
-    "image": "art/voltique.webp",
+    "image": "art/voltique-full.webp",
     "attacks": [
       {
         "name": "Spark",
@@ -118,7 +118,7 @@
     "name": "Frostlyn",
     "element": "ice",
     "maxHp": 10,
-    "image": "art/frostlyn.webp",
+    "image": "art/frostlyn-full.webp",
     "attacks": [
       {
         "name": "Ice Shard",
@@ -137,7 +137,7 @@
     "name": "Pyrolith",
     "element": "fire",
     "maxHp": 12,
-    "image": "art/pyrolith.webp",
+    "image": "art/pyrolith-full.webp",
     "attacks": [
       {
         "name": "Lava Claw",
@@ -156,7 +156,7 @@
     "name": "Nerith",
     "element": "water",
     "maxHp": 12,
-    "image": "art/nerith.webp",
+    "image": "art/nerith-full.webp",
     "attacks": [
       {
         "name": "Aqua Slice",
@@ -175,7 +175,7 @@
     "name": "Brambleon",
     "element": "nature",
     "maxHp": 12,
-    "image": "art/brambleon.webp",
+    "image": "art/brambleon-full.webp",
     "attacks": [
       {
         "name": "Vine Whip",
@@ -194,7 +194,7 @@
     "name": "Lumivolt",
     "element": "light",
     "maxHp": 12,
-    "image": "art/lumivolt.webp",
+    "image": "art/lumivolt-full.webp",
     "attacks": [
       {
         "name": "Light Beam",
@@ -213,7 +213,7 @@
     "name": "Shadowmire",
     "element": "shadow",
     "maxHp": 12,
-    "image": "art/shadowmire.webp",
+    "image": "art/shadowmire-full.webp",
     "attacks": [
       {
         "name": "Dark Claw",
@@ -232,7 +232,7 @@
     "name": "Emberquill",
     "element": "fire",
     "maxHp": 10,
-    "image": "art/emberquill.webp",
+    "image": "art/emberquill-full.webp",
     "attacks": [
       {
         "name": "Flame Feather",
@@ -251,7 +251,7 @@
     "name": "Boulderhorn",
     "element": "earth",
     "maxHp": 14,
-    "image": "art/boulderhorn.webp",
+    "image": "art/boulderhorn-full.webp",
     "attacks": [
       {
         "name": "Headbutt",
@@ -270,7 +270,7 @@
     "name": "Mistleap",
     "element": "water",
     "maxHp": 10,
-    "image": "art/mistleap.webp",
+    "image": "art/mistleap-full.webp",
     "attacks": [
       {
         "name": "Bubble Shot",
@@ -289,7 +289,7 @@
     "name": "Thornkit",
     "element": "nature",
     "maxHp": 10,
-    "image": "art/thornkit.webp",
+    "image": "art/thornkit-full.webp",
     "attacks": [
       {
         "name": "Leaf Fang",
@@ -308,7 +308,7 @@
     "name": "Skydart",
     "element": "air",
     "maxHp": 12,
-    "image": "art/skydart.webp",
+    "image": "art/skydart-full.webp",
     "attacks": [
       {
         "name": "Wind Blade",
@@ -327,7 +327,7 @@
     "name": "Glimmerfin",
     "element": "light",
     "maxHp": 10,
-    "image": "art/glimmerfin.webp",
+    "image": "art/glimmerfin-full.webp",
     "attacks": [
       {
         "name": "Shine Splash",
@@ -346,7 +346,7 @@
     "name": "Moltrex",
     "element": "fire",
     "maxHp": 14,
-    "image": "art/moltrex.webp",
+    "image": "art/moltrex-full.webp",
     "attacks": [
       {
         "name": "Heat Bash",
@@ -365,7 +365,7 @@
     "name": "Cryozar",
     "element": "ice",
     "maxHp": 14,
-    "image": "art/cryozar.webp",
+    "image": "art/cryozar-full.webp",
     "attacks": [
       {
         "name": "Icicle Strike",
@@ -384,7 +384,7 @@
     "name": "Stormeel",
     "element": "lightning",
     "maxHp": 10,
-    "image": "art/stormeel.webp",
+    "image": "art/stormeel-full.webp",
     "attacks": [
       {
         "name": "Shock",
@@ -403,7 +403,7 @@
     "name": "Verdantis",
     "element": "nature",
     "maxHp": 14,
-    "image": "art/verdantis.webp",
+    "image": "art/verdantis-full.webp",
     "attacks": [
       {
         "name": "Root Strike",
@@ -422,7 +422,7 @@
     "name": "Noctaris",
     "element": "shadow",
     "maxHp": 14,
-    "image": "art/noctaris.webp",
+    "image": "art/noctaris-full.webp",
     "attacks": [
       {
         "name": "Shadow Bolt",
@@ -441,7 +441,7 @@
     "name": "Astrail",
     "element": "cosmic",
     "maxHp": 14,
-    "image": "art/astrail.webp",
+    "image": "art/astrail-full.webp",
     "attacks": [
       {
         "name": "Star Shot",
