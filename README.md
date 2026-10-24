@@ -18,8 +18,30 @@ via Android Studios Build-meny. Appen kör spelet offline i en WebView och
 begär liggande orientering.
 
 Den importerade versionen saknar Gradle Wrapper. För ett bygge med en separat
-Gradle-installation behövs Gradle 8.9 och JDK 17. En APK har ännu inte byggts
-eller testats i detta projekt.
+Gradle-installation behövs Gradle 8.9 och JDK 17, enligt
+[Android Gradle Plugins kompatibilitetstabell](https://developer.android.com/build/releases/agp-8-7-0-release-notes#compatibility).
+
+## Automatiska APK-byggen
+
+[Build Android APK](https://github.com/FilipFogel/monzuki/actions/workflows/android-apk.yml)
+körs vid varje push till `main`, inklusive när en pull request mergas. Det går
+också att starta bygget med **Run workflow** på samma sida.
+
+Varje nytt workflow-bygge får version `0.2.<körningsnummer>` och ett ökande
+Android `versionCode` (körningsnummer + 1). Om samma körning startas om behåller
+den sitt versionsnummer. Lokala byggen behåller version `0.2` och kod `1`
+om inga versionsparametrar anges.
+
+Workflowen installerar byggverktygen, kopierar aktuella spelfiler från projektets
+rot till Android-appen och bygger en testsignerad APK. Den kontrollerar sedan
+signaturen, versionsnumret och att arenan, kortdata och samtliga kortillustrationer
+finns med och matchar källfilerna.
+
+Ladda ner `elemental-duel-0.2.<körningsnummer>-debug` under **Artifacts** i en
+lyckad körning, packa upp ZIP-filen och installera APK:n på Android.
+Artefakten sparas i 30 dagar. Detta är en debugversion för testning, inte en
+Google Play-release. GitHub-runnern skapar en debugnyckel för bygget; om nästa
+bygge har en annan signatur behöver den gamla appen avinstalleras först.
 
 ## Filer
 

@@ -1,0 +1,118 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build installable APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-35 build-tools;34.0.0'
+
+      # The imported project has no Gradle Wrapper. Pin the Gradle version
+      # required by Android Gradle Plugin 8.7.3 instead of using runner defaults.
+      - name: Set up Gradle 8.9
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+
+      - name: Set build version
+        id: version
+        run: |
+          echo "code=$((GITHUB_RUN_NUMBER + 1))" >> "$GITHUB_OUTPUT"
+          echo "name=0.2.${GITHUB_RUN_NUMBER}" >> "$GITHUB_OUTPUT"
+
+      - name: Copy current game into Android app
+        run: |
+          assets=android-app/app/src/main/assets
+          cp index.html cards.js cards.json arena.png "$assets/"
+          rsync -a --delete art/ "$assets/art/"
+
+      - name: Build signed debug APK
+        env:
+          VERSION_CODE: ${{ steps.version.outputs.code }}
+          VERSION_NAME: ${{ steps.version.outputs.name }}
+        run: >-
+          gradle -p android-app --no-daemon --stacktrace
+          -PversionCode="$VERSION_CODE"
+          -PversionName="$VERSION_NAME"
+          :app:assembleDebug
+
+      - name: Verify APK signature and packaged game
+        env:
+          VERSION_CODE: ${{ steps.version.outputs.code }}
+          VERSION_NAME: ${{ steps.version.outputs.name }}
+        run: |
+          "$ANDROID_HOME/build-tools/34.0.0/apksigner" verify --verbose \
+            android-app/app/build/outputs/apk/debug/app-debug.apk
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          from zipfile import ZipFile
+
+          output = Path('android-app/app/build/outputs/apk/debug')
+          metadata = json.loads((output / 'output-metadata.json').read_text())
+          apk = metadata['elements'][0]
+          assert apk['versionCode'] == int(os.environ['VERSION_CODE']), 'Wrong versionCode'
+          assert apk['versionName'] == os.environ['VERSION_NAME'], 'Wrong versionName'
+          cards = json.loads(Path('cards.json').read_text())
+          files = ['index.html', 'cards.js', 'cards.json', 'arena.png']
+          files += [card['image'] for card in cards]
+          with ZipFile(output / 'app-debug.apk') as package:
+              assert package.testzip() is None, 'Corrupt APK archive'
+              for filename in files:
+                  assert package.read('assets/' + filename) == Path(filename).read_bytes(), filename
+          print(f'Verified version {apk["versionName"]} and all {len(cards)} card illustrations.')
+          PY
+
+      - name: Name APK
+        env:
+          VERSION_NAME: ${{ steps.version.outputs.name }}
+        run: |
+          mkdir -p dist
+          cp android-app/app/build/outputs/apk/debug/app-debug.apk \
+            "dist/elemental-duel-${VERSION_NAME}-debug.apk"
+
+      - name: Upload APK
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: elemental-duel-${{ steps.version.outputs.name }}-debug
+          path: dist/*.apk
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
+
+      - name: Add download link to build summary
+        env:
+          VERSION_NAME: ${{ steps.version.outputs.name }}
+          ARTIFACT_URL: ${{ steps.upload.outputs.artifact-url }}
+        run: |
+          {
+            echo "### Elemental Duel ${VERSION_NAME}"
+            echo "[Download APK artifact](${ARTIFACT_URL})"
+            echo
+            echo "Installable debug APK, signed with the runner's debug key."
+            echo "Commit: ${GITHUB_SHA}"
+          } >> "$GITHUB_STEP_SUMMARY"
