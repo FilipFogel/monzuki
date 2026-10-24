@@ -48,6 +48,9 @@ jobs:
           cp index.html cards.js cards.json arena.png "$assets/"
           rsync -a --delete art/ "$assets/art/"
 
+      - name: Check collection migration and card rendering
+        run: node tests/collection.cjs
+
       - name: Build signed debug APK
         env:
           VERSION_CODE: ${{ steps.version.outputs.code }}
@@ -85,6 +88,7 @@ jobs:
           cards = json.loads(Path('cards.json').read_text())
           files = ['index.html', 'cards.js', 'cards.json', 'arena.png']
           files += [card['image'] for card in cards]
+          files += ['art/' + card['id'] + '-creature.webp' for card in cards]
           with ZipFile(output / 'app-debug.apk') as package:
               assert package.testzip() is None, 'Corrupt APK archive'
               for filename in files:

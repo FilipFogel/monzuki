@@ -1,0 +1,7 @@
+{
+  "tool": "Built-in image_gen",
+  "mode": "background-extraction",
+  "references": "Corresponding full card illustration from cards.json",
+  "prompt": "Edit the supplied fantasy creature card into a single standalone creature sprite for a basic trading card. Keep the exact creature identity, anatomy, colors and polished illustration style. Show the complete creature, every ear, wing, tail and foot inside the canvas with 7 percent clear padding. Remove ALL card frame, gems, letters, numbers, parchment, scenery and ground. Only the creature isolated on genuine transparent alpha background. Keep small intrinsic flame/water elements attached to its body but no surrounding particle cloud. Center composition, square 1024x1024, crisp high detail, no text, no card. The creature must be opaque; outside silhouette must be transparent.",
+  "output": "art/<id>-creature.webp, original resolution, quality 96, alpha retained"
+}

@@ -1,20 +1,21 @@
 [
   {
     "id": "cindervyx",
-    "name": "Cindervyx",
+    "name": "Glödräven",
     "element": "fire",
     "maxHp": 10,
     "image": "art/glodraven-full.png",
     "attacks": [
       {
-        "name": "Ember Bite",
+        "name": "Bitattack",
         "energy": 1,
-        "damage": 2
+        "damage": 20
       },
       {
-        "name": "Blazing Dash",
-        "energy": 2,
-        "damage": 4
+        "name": "Eldsvans",
+        "energy": 1,
+        "damage": 15,
+        "description": "Gör 15 skada och kan ge brännskada (5 skada nästa tur)."
       }
     ]
   },

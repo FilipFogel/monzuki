@@ -1,0 +1,8 @@
+{
+  "tool": "Built-in image_gen",
+  "prompt": "Use case: logo-brand. Create a polished square Android app icon for MONZUKI, a collectible fantasy creature card game. No text. A charming fiery orange fox face with large ears and confident friendly eyes, framed by two layered collectible cards and one small four-point cyan sparkle. Bold clean silhouette readable at 48px, premium colorful 3D game art, midnight violet and turquoise background with warm orange contrast. All important art inside center 65 percent safe zone, background fills the entire square edge to edge, no outer rounded corners, no mockup, no watermark. 1024x1024.",
+  "outputs": [
+    "android-app/app/src/main/res/drawable/launcher_art.png",
+    "android-app/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+  ]
+}
