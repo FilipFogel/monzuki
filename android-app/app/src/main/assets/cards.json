@@ -1,0 +1,458 @@
+[
+  {
+    "id": "cindervyx",
+    "name": "Cindervyx",
+    "element": "fire",
+    "maxHp": 10,
+    "image": "art/cindervyx.webp",
+    "attacks": [
+      {
+        "name": "Ember Bite",
+        "energy": 1,
+        "damage": 2
+      },
+      {
+        "name": "Blazing Dash",
+        "energy": 2,
+        "damage": 4
+      }
+    ]
+  },
+  {
+    "id": "aqualune",
+    "name": "Aqualune",
+    "element": "water",
+    "maxHp": 10,
+    "image": "art/aqualune.webp",
+    "attacks": [
+      {
+        "name": "Water Splash",
+        "energy": 1,
+        "damage": 2
+      },
+      {
+        "name": "Tidal Wave",
+        "energy": 2,
+        "damage": 4
+      }
+    ]
+  },
+  {
+    "id": "terranox",
+    "name": "Terranox",
+    "element": "earth",
+    "maxHp": 12,
+    "image": "art/terranox.webp",
+    "attacks": [
+      {
+        "name": "Rock Toss",
+        "energy": 1,
+        "damage": 3
+      },
+      {
+        "name": "Earth Slam",
+        "energy": 2,
+        "damage": 5
+      }
+    ]
+  },
+  {
+    "id": "zephyrax",
+    "name": "Zephyrax",
+    "element": "air",
+    "maxHp": 10,
+    "image": "art/zephyrax.webp",
+    "attacks": [
+      {
+        "name": "Gust",
+        "energy": 1,
+        "damage": 2
+      },
+      {
+        "name": "Sky Dive",
+        "energy": 2,
+        "damage": 4
+      }
+    ]
+  },
+  {
+    "id": "florami",
+    "name": "Florami",
+    "element": "nature",
+    "maxHp": 10,
+    "image": "art/florami.webp",
+    "attacks": [
+      {
+        "name": "Leaf Touch",
+        "energy": 1,
+        "damage": 2
+      },
+      {
+        "name": "Bloom Burst",
+        "energy": 2,
+        "damage": 4
+      }
+    ]
+  },
+  {
+    "id": "voltique",
+    "name": "Voltique",
+    "element": "lightning",
+    "maxHp": 10,
+    "image": "art/voltique.webp",
+    "attacks": [
+      {
+        "name": "Spark",
+        "energy": 1,
+        "damage": 2
+      },
+      {
+        "name": "Thunder Leap",
+        "energy": 2,
+        "damage": 4
+      }
+    ]
+  },
+  {
+    "id": "frostlyn",
+    "name": "Frostlyn",
+    "element": "ice",
+    "maxHp": 10,
+    "image": "art/frostlyn.webp",
+    "attacks": [
+      {
+        "name": "Ice Shard",
+        "energy": 1,
+        "damage": 2
+      },
+      {
+        "name": "Frost Nova",
+        "energy": 2,
+        "damage": 4
+      }
+    ]
+  },
+  {
+    "id": "pyrolith",
+    "name": "Pyrolith",
+    "element": "fire",
+    "maxHp": 12,
+    "image": "art/pyrolith.webp",
+    "attacks": [
+      {
+        "name": "Lava Claw",
+        "energy": 1,
+        "damage": 3
+      },
+      {
+        "name": "Magma Burst",
+        "energy": 2,
+        "damage": 5
+      }
+    ]
+  },
+  {
+    "id": "nerith",
+    "name": "Nerith",
+    "element": "water",
+    "maxHp": 12,
+    "image": "art/nerith.webp",
+    "attacks": [
+      {
+        "name": "Aqua Slice",
+        "energy": 1,
+        "damage": 3
+      },
+      {
+        "name": "Ocean Surge",
+        "energy": 2,
+        "damage": 5
+      }
+    ]
+  },
+  {
+    "id": "brambleon",
+    "name": "Brambleon",
+    "element": "nature",
+    "maxHp": 12,
+    "image": "art/brambleon.webp",
+    "attacks": [
+      {
+        "name": "Vine Whip",
+        "energy": 1,
+        "damage": 3
+      },
+      {
+        "name": "Thorn Storm",
+        "energy": 2,
+        "damage": 5
+      }
+    ]
+  },
+  {
+    "id": "lumivolt",
+    "name": "Lumivolt",
+    "element": "light",
+    "maxHp": 12,
+    "image": "art/lumivolt.webp",
+    "attacks": [
+      {
+        "name": "Light Beam",
+        "energy": 1,
+        "damage": 3
+      },
+      {
+        "name": "Radiant Pulse",
+        "energy": 2,
+        "damage": 5
+      }
+    ]
+  },
+  {
+    "id": "shadowmire",
+    "name": "Shadowmire",
+    "element": "shadow",
+    "maxHp": 12,
+    "image": "art/shadowmire.webp",
+    "attacks": [
+      {
+        "name": "Dark Claw",
+        "energy": 1,
+        "damage": 3
+      },
+      {
+        "name": "Nightfall",
+        "energy": 2,
+        "damage": 5
+      }
+    ]
+  },
+  {
+    "id": "emberquill",
+    "name": "Emberquill",
+    "element": "fire",
+    "maxHp": 10,
+    "image": "art/emberquill.webp",
+    "attacks": [
+      {
+        "name": "Flame Feather",
+        "energy": 1,
+        "damage": 2
+      },
+      {
+        "name": "Fire Spin",
+        "energy": 2,
+        "damage": 4
+      }
+    ]
+  },
+  {
+    "id": "boulderhorn",
+    "name": "Boulderhorn",
+    "element": "earth",
+    "maxHp": 14,
+    "image": "art/boulderhorn.webp",
+    "attacks": [
+      {
+        "name": "Headbutt",
+        "energy": 1,
+        "damage": 3
+      },
+      {
+        "name": "Stone Charge",
+        "energy": 2,
+        "damage": 5
+      }
+    ]
+  },
+  {
+    "id": "mistleap",
+    "name": "Mistleap",
+    "element": "water",
+    "maxHp": 10,
+    "image": "art/mistleap.webp",
+    "attacks": [
+      {
+        "name": "Bubble Shot",
+        "energy": 1,
+        "damage": 2
+      },
+      {
+        "name": "Wave Jump",
+        "energy": 2,
+        "damage": 4
+      }
+    ]
+  },
+  {
+    "id": "thornkit",
+    "name": "Thornkit",
+    "element": "nature",
+    "maxHp": 10,
+    "image": "art/thornkit.webp",
+    "attacks": [
+      {
+        "name": "Leaf Fang",
+        "energy": 1,
+        "damage": 2
+      },
+      {
+        "name": "Nature’s Grasp",
+        "energy": 2,
+        "damage": 4
+      }
+    ]
+  },
+  {
+    "id": "skydart",
+    "name": "Skydart",
+    "element": "air",
+    "maxHp": 12,
+    "image": "art/skydart.webp",
+    "attacks": [
+      {
+        "name": "Wind Blade",
+        "energy": 1,
+        "damage": 3
+      },
+      {
+        "name": "Aerial Strike",
+        "energy": 2,
+        "damage": 5
+      }
+    ]
+  },
+  {
+    "id": "glimmerfin",
+    "name": "Glimmerfin",
+    "element": "light",
+    "maxHp": 10,
+    "image": "art/glimmerfin.webp",
+    "attacks": [
+      {
+        "name": "Shine Splash",
+        "energy": 1,
+        "damage": 2
+      },
+      {
+        "name": "Star Burst",
+        "energy": 2,
+        "damage": 4
+      }
+    ]
+  },
+  {
+    "id": "moltrex",
+    "name": "Moltrex",
+    "element": "fire",
+    "maxHp": 14,
+    "image": "art/moltrex.webp",
+    "attacks": [
+      {
+        "name": "Heat Bash",
+        "energy": 1,
+        "damage": 3
+      },
+      {
+        "name": "Volcano Slam",
+        "energy": 2,
+        "damage": 5
+      }
+    ]
+  },
+  {
+    "id": "cryozar",
+    "name": "Cryozar",
+    "element": "ice",
+    "maxHp": 14,
+    "image": "art/cryozar.webp",
+    "attacks": [
+      {
+        "name": "Icicle Strike",
+        "energy": 1,
+        "damage": 3
+      },
+      {
+        "name": "Glacial Breath",
+        "energy": 2,
+        "damage": 5
+      }
+    ]
+  },
+  {
+    "id": "stormeel",
+    "name": "Stormeel",
+    "element": "lightning",
+    "maxHp": 10,
+    "image": "art/stormeel.webp",
+    "attacks": [
+      {
+        "name": "Shock",
+        "energy": 1,
+        "damage": 2
+      },
+      {
+        "name": "Lightning Storm",
+        "energy": 2,
+        "damage": 4
+      }
+    ]
+  },
+  {
+    "id": "verdantis",
+    "name": "Verdantis",
+    "element": "nature",
+    "maxHp": 14,
+    "image": "art/verdantis.webp",
+    "attacks": [
+      {
+        "name": "Root Strike",
+        "energy": 1,
+        "damage": 3
+      },
+      {
+        "name": "Forest Guard",
+        "energy": 2,
+        "damage": 5
+      }
+    ]
+  },
+  {
+    "id": "noctaris",
+    "name": "Noctaris",
+    "element": "shadow",
+    "maxHp": 14,
+    "image": "art/noctaris.webp",
+    "attacks": [
+      {
+        "name": "Shadow Bolt",
+        "energy": 1,
+        "damage": 3
+      },
+      {
+        "name": "Eclipse",
+        "energy": 2,
+        "damage": 5
+      }
+    ]
+  },
+  {
+    "id": "astrail",
+    "name": "Astrail",
+    "element": "cosmic",
+    "maxHp": 14,
+    "image": "art/astrail.webp",
+    "attacks": [
+      {
+        "name": "Star Shot",
+        "energy": 1,
+        "damage": 3
+      },
+      {
+        "name": "Cosmic Beam",
+        "energy": 2,
+        "damage": 5
+      }
+    ]
+  }
+]

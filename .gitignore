@@ -1,0 +1,22 @@
+# Android and Gradle local state
+.gradle/
+**/build/
+local.properties
+.idea/
+*.iml
+.cxx/
+.externalNativeBuild/
+
+# Signing keys and local configuration
+*.jks
+*.keystore
+keystore.properties
+.env
+.env.*
+!.env.example
+
+# Generated packages and operating system files
+*.apk
+*.aab
+.DS_Store
+Thumbs.db
