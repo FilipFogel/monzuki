@@ -44,3 +44,9 @@ orbit.run('selectPack(2);selectPack(0)');assert.equal(animation.frames.at(-1).tr
 console.log('PASS: persistent pack elements animate through 25 orbit positions, match final position and wrap without spending openings.');
 
 wrapper.getAnimations=()=>[{playState:"running"}];orbit.run("selectPack(1)");assert.equal(orbit.run("selectedPack"),0);
+
+const album=app();album.run('renderCollection()');album.els.collectionPack.value='0';album.run('renderCollection()');assert.equal((album.els.grid.innerHTML.match(/class="missing-card"/g)||[]).length,32);assert(!album.els.grid.innerHTML.includes('<img'));assert(album.els.collectionTitle.textContent.includes('Skogsglänta · 0 / 32'));
+album.run("save.counts['florami:holo']=3;save.counts['voltique:base']=2;renderCollection()");assert.equal((album.els.grid.innerHTML.match(/class="missing-card"/g)||[]).length,31);assert.equal((album.els.grid.innerHTML.match(/class="owned-slot"/g)||[]).length,1);assert(!album.els.grid.innerHTML.includes('voltique'));assert(album.els.collectionTitle.textContent.includes('1 / 32'));
+album.els.filter.value='holo';album.run('renderCollection()');assert.equal((album.els.grid.innerHTML.match(/class="missing-card"/g)||[]).length,7);assert(album.els.grid.innerHTML.includes('florami-creature.webp'));
+album.els.collectionPack.value='1';album.els.filter.value='all';album.run('renderCollection()');assert(album.els.collectionTitle.textContent.includes('Åskglöd · 1 / 32'));assert(!album.els.grid.innerHTML.includes('florami'));
+album.els.collectionPack.value='all';album.run('renderCollection()');assert.equal((album.els.grid.innerHTML.match(/class="missing-card"/g)||[]).length,94);assert(album.els.collectionTitle.textContent.includes('2 / 96'));console.log('PASS: per-pack album slots, hidden missing art, owned duplicates, rarity filters and all-pack totals.');
