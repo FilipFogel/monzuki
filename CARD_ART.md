@@ -12,3 +12,13 @@ Old collection entries used the illustration artwork for every finish. The one-t
 Creature sprites and the launcher icon were made with the built-in image generator. Prompts are in `art/creature-prompts.json` and `art/app-icon-prompt.json`. Android launcher assets are under `android-app/app/src/main/res/`. Creature exports retain alpha and their original 1254×1254 resolution.
 
 Run `node tests/collection.cjs` for collection migration, pack/sweep locking, rarity boundary and card layout checks. Android CI verifies that all full illustrations and all creature sprites are packaged byte-for-byte.
+
+## Packs and timed openings
+
+Each creature and all four of its finishes belong to exactly one pack (eight creatures each): Skogsglänta has nature, earth and shadow; Åskglöd has fire, lightning and light; Frostljus has water, ice, air and cosmic. The pack picker lists its actual contents.
+
+New and upgraded installations start with five openings. One opening regenerates every two hours, up to five. Time spent at the cap is not banked. The shared balance and timestamp persist across app restarts; the offline prototype uses device time (not an authoritative server clock). Rolling the clock backwards cannot grant extra credit. Opening a pack atomically saves its five cards and consumes one credit. Resuming an interrupted pack costs nothing.
+
+The Android build integrates Google rewarded TEST ads, with the official demo app/unit IDs. A reward is recorded in native preferences only from the SDK's earned-reward callback, then acknowledged after the web collection saves it. A pending reward survives restart, and duplicate delivery is ignored. Ads are opt-in, unavailable while the balance is full, and never simulated in the browser. If a timer refill fills the balance during an ad, its reward waits for the next free slot.
+
+Production ads are not activated: provide the owner's AdMob App ID and rewarded ad unit ID and configure the production consent/privacy flow before a public release. No production revenue is earned by this test APK.
