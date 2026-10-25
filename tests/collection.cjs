@@ -7,7 +7,7 @@ const migrated=app(old);assert.equal(migrated.state().counts['florami:rare'],5);
 const again=app(migrated.state());assert.deepEqual(again.state(),migrated.state());
 const a=app();for(const c of JSON.parse(fs.readFileSync(path.join(root,'cards.json')))){const base=a.run(`cardFace('${c.id}','base')`),holo=a.run(`cardFace('${c.id}','holo')`),rare=a.run(`cardFace('${c.id}','rare')`);assert(base.includes(c.id+'-creature.webp'));assert(!base.includes('scene-foil'));assert(holo.indexOf('scene-foil')<holo.indexOf('class="creature"'));assert(rare.includes(c.image));assert(!rare.includes('basic-move'));assert.equal((rare.match(/<img /g)||[]).length,1)}
 a.run('openPack();openPack()');assert.equal(a.state().packs,1);a.run('tearPack()');a.jobs.shift()();for(let i=0;i<5;i++){a.run('advanceCard();advanceCard()');assert.equal(a.jobs.length,1);a.jobs.shift()()}assert.equal(a.state().pending.filter(c=>c.revealed).length,5);assert.equal(Object.values(a.state().counts).reduce((s,n)=>s+n,0),5);assert(a.els.spread.innerHTML.includes('summary'));
-for(const [n,t] of [[0,'base'],[.64999,'base'],[.65,'holo'],[.89999,'holo'],[.90,'rare'],[.97999,'rare'],[.98,'prism']])assert.equal(a.run(`roll(${n})`),t);
+for(const [n,t] of [[0,'base'],[.65999,'base'],[.66,'holo'],[.90999,'holo'],[.91,'rare'],[.98999,'rare'],[.99,'prism']])assert.equal(a.run(`roll(${n})`),t);
 console.log('PASS: migration preserves all copies and pending packs, migration is idempotent, 24 basic/illustration pairs render separately, foil behind creatures, no double awards or swipes, rarity boundaries.');
 
 const hours=7200000,b=app();
