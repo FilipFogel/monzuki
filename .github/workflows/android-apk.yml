@@ -51,6 +51,9 @@ jobs:
       - name: Check collection migration and card rendering
         run: node tests/collection.cjs
 
+      - name: Validate complete launcher images
+        run: python3 tests/launcher_icons.py
+
       - name: Build signed debug APK
         env:
           VERSION_CODE: ${{ steps.version.outputs.code }}
