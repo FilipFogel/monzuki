@@ -36,3 +36,11 @@ const gallery=galleryApp.els.boosterGallery;
 function gesture(x,y,cancel=false){gallery.onpointerdown({clientX:150,clientY:150,pointerId:1,button:0});gallery.onpointermove({clientX:150+x,clientY:150+y,pointerId:1});if(cancel)gallery.onpointercancel();else gallery.onpointerup({clientX:150+x,clientY:150+y,pointerId:1});}
 gesture(-100,5);assert.equal(galleryApp.run('selectedPack'),0);gesture(100,5);assert.equal(galleryApp.run('selectedPack'),2);gesture(5,100);assert.equal(galleryApp.run('selectedPack'),2);gesture(-100,0,true);assert.equal(galleryApp.run('selectedPack'),2);gesture(-15,0);assert.equal(galleryApp.run('selectedPack'),2);gesture(-100,0);let stopped=false;gallery.clickListener({preventDefault(){},stopPropagation(){stopped=true}});assert(stopped);assert.equal(galleryApp.state().packs,0);assert.equal(galleryApp.state().openings.credits,5);
 console.log('PASS: previews use selected pool only; pack swipes wrap both ways, ignore vertical/short/cancelled gestures, suppress ghost clicks and spend no openings.');
+
+const orbit=app(),wrapper=orbit.els['booster-0'],originalGallery=orbit.els.boosterGallery.innerHTML;let animation;
+wrapper.animate=(frames,options)=>{animation={frames,options}};
+orbit.run('selectPack(1)');assert.equal(orbit.els['booster-0'],wrapper);assert.equal(orbit.els.boosterGallery.innerHTML,originalGallery);assert.equal(animation.frames.length,25);assert.equal(animation.options.duration,560);assert.equal(animation.frames.at(-1).transform,wrapper.style.transform);assert.notEqual(animation.frames[0].transform,animation.frames.at(-1).transform);
+orbit.run('selectPack(2);selectPack(0)');assert.equal(animation.frames.at(-1).transform,wrapper.style.transform);assert.equal(orbit.state().openings.credits,5);
+console.log('PASS: persistent pack elements animate through 25 orbit positions, match final position and wrap without spending openings.');
+
+wrapper.getAnimations=()=>[{playState:"running"}];orbit.run("selectPack(1)");assert.equal(orbit.run("selectedPack"),0);
