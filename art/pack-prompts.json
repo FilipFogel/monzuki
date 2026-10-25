@@ -1,0 +1,17 @@
+{
+  "tool": "built-in imagegen",
+  "prompts": [
+    {
+      "name": "skogsglanta",
+      "prompt": "Use case: stylized-concept. Create standalone premium fantasy booster packaging illustration for Monzuki skogsglanta. Portrait 2:3 artwork, edge to edge scene, no packaging mockup, no borders, NO TEXT, NO NUMBERS, NO CARD STATS. Reference is character identity only: create a NEW pose and NEW composition. sunlit enchanted forest glade, emerald foliage and floating golden pollen. Flower crowned golden deer fox with leaf ears and green eyes, leaping toward viewer. Crisp polished painterly fantasy game artwork with luminous depth and beautiful fine detail. Whole creature visible in central 70% width, face near upper middle, generous scenic space above and below for UI branding. This will cover a tall booster wrapper, not a playing card. Preserve reference creature appearance. No logos or typography."
+    },
+    {
+      "name": "askglod",
+      "prompt": "Use case: stylized-concept. Create standalone premium fantasy booster packaging illustration for Monzuki askglod. Portrait 2:3 artwork, edge to edge scene, no packaging mockup, no borders, NO TEXT, NO NUMBERS, NO CARD STATS. Reference is character identity only: create a NEW pose and NEW composition. stormy volcanic ridge, violet storm clouds, golden lightning and orange embers. Black and yellow electric fox wolf with blue eyes springing upward. Crisp polished painterly fantasy game artwork with luminous depth and beautiful fine detail. Whole creature visible in central 70% width, face near upper middle, generous scenic space above and below for UI branding. This will cover a tall booster wrapper, not a playing card. Preserve reference creature appearance. No logos or typography."
+    },
+    {
+      "name": "frostljus",
+      "prompt": "Use case: stylized-concept. Create standalone premium fantasy booster packaging illustration for Monzuki frostljus. Portrait 2:3 artwork, edge to edge scene, no packaging mockup, no borders, NO TEXT, NO NUMBERS, NO CARD STATS. Reference is character identity only: create a NEW pose and NEW composition. glacial cathedral with turquoise ice and violet aurora. Blue crystalline ice dragon with orange eyes and pale belly standing proudly on an ice spire. Crisp polished painterly fantasy game artwork with luminous depth and beautiful fine detail. Whole creature visible in central 70% width, face near upper middle, generous scenic space above and below for UI branding. This will cover a tall booster wrapper, not a playing card. Preserve reference creature appearance. No logos or typography."
+    }
+  ]
+}
