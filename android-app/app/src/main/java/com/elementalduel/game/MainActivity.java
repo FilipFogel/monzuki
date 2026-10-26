@@ -46,6 +46,22 @@ public class MainActivity extends Activity {
         web.loadUrl("file:///android_asset/index.html");
     }
     public class AdsBridge {
+        @JavascriptInterface public void shareImage(String encoded){
+            if(encoded==null||encoded.length()>6000000)return;
+            runOnUiThread(()->{try{
+                byte[] bytes=android.util.Base64.decode(encoded,android.util.Base64.DEFAULT);
+                if(bytes.length<8||bytes[0]!=(byte)137||bytes[1]!=80||bytes[2]!=78||bytes[3]!=71)return;
+                java.io.File dir=new java.io.File(getCacheDir(),"shares");dir.mkdirs();
+                java.io.File file=new java.io.File(dir,"monzuki-min-samling.png");
+                try(java.io.FileOutputStream out=new java.io.FileOutputStream(file)){out.write(bytes);}
+                android.net.Uri uri=androidx.core.content.FileProvider.getUriForFile(MainActivity.this,getPackageName()+".files",file);
+                android.content.Intent intent=new android.content.Intent(android.content.Intent.ACTION_SEND);
+                intent.setType("image/png");intent.putExtra(android.content.Intent.EXTRA_STREAM,uri);
+                intent.setClipData(android.content.ClipData.newRawUri("Monzuki",uri));
+                intent.addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                startActivity(android.content.Intent.createChooser(intent,"Dela min monter"));
+            }catch(Exception e){android.widget.Toast.makeText(MainActivity.this,"Kunde inte dela bilden",android.widget.Toast.LENGTH_SHORT).show();}});
+        }
         @JavascriptInterface public String pendingReward(){return rewards.getString("pending","");}
         @JavascriptInterface public void acknowledgeReward(String token){synchronized(rewards){if(token.equals(rewards.getString("pending","")))rewards.edit().remove("pending").commit();}}
         @JavascriptInterface public void showRewarded(){runOnUiThread(()->loadRewarded());}

@@ -58,3 +58,19 @@ for(let i=0;i<3;i++){const tapped=app();tapped.run(`tapPack(${i});tapPack(${i})`
 const effects=app();effects.run("var newSounds=0,prismSounds=0,swipeSounds=0;playNewCardSound=()=>newSounds++;playPrismaSound=()=>prismSounds++;playSwipeSound=()=>swipeSounds++;save.pending=[{id:'florami',tier:'base',fresh:true,revealed:false}];showCard();showCard()");assert.equal(effects.run('newSounds'),1);effects.run("save.pending=[{id:'florami',tier:'holo',fresh:false,revealed:false}];showCard()");assert.equal(effects.run('newSounds'),1);effects.run("save.pending=[{id:'florami',tier:'prism',fresh:true,revealed:false}];showCard()");assert.equal(effects.run('prismSounds'),1);assert.equal(effects.run('newSounds'),1);effects.run('advanceCard();advanceCard()');assert.equal(effects.run('swipeSounds'),1);console.log('PASS: new-card sound once, no duplicate-card chime, Prisma takes priority, swipe sound not doubled.');
 
 const music=app();music.run('setMusicEnabled(false)');assert.equal(music.data.get('monzuki.music'),'off');assert.equal(music.run('musicEnabled'),false);music.run('setMusicEnabled(true)');assert.equal(music.data.get('monzuki.music'),'on');assert.equal(music.run('musicEnabled'),true);music.run('setMusicEnabled(false);startAmbience()');assert.equal(music.run('musicBus'),null);console.log('PASS: music toggle persists independently of collection and disabled music cannot start.');
+
+const adventure=app();adventure.run("chooseBuddy('florami');chooseBuddy('voltique')");assert.equal(adventure.state().journey.buddy,'florami');assert.equal(adventure.state().counts['florami:base'],1);assert(!adventure.state().counts['voltique:base']);
+adventure.run('explore()');assert.equal(adventure.state().journey.stage,0);
+adventure.run("save.counts['aqualune:base']=1;save.counts['voltique:base']=1;teamToggle('aqualune');teamToggle('voltique');teamToggle('florami');explore()");assert.equal(adventure.state().journey.stage,0);
+adventure.run("teamToggle('florami');explore()");assert.equal(adventure.state().journey.stage,1);assert.equal(adventure.state().counts['mistleap:base'],1);
+adventure.run('explore()');assert.equal(adventure.state().journey.stage,2);assert.equal(adventure.state().counts['voltique:base'],2);
+adventure.run('explore()');assert.equal(adventure.state().journey.stage,3);assert.equal(adventure.state().counts['frostlyn:base'],1);
+adventure.run("teamToggle('florami');teamToggle('frostlyn');explore();explore()");assert.equal(adventure.state().journey.stage,4);assert.equal(adventure.state().counts['cryozar:base'],1);
+adventure.run("save.counts['brambleon:base']=1;save.counts['thornkit:holo']=1;claimGoal(0);claimGoal(0)");assert.equal(adventure.state().journey.dust,15);assert.equal(adventure.state().journey.goals.length,1);
+adventure.run("recycle('voltique:base');recycle('voltique:base')");assert.equal(adventure.state().counts['voltique:base'],1);assert.equal(adventure.state().journey.dust,18);
+adventure.run("wishSet('noctaris','base');craftWish()");assert(!adventure.state().counts['noctaris:base']);
+adventure.run("save.journey.dust=30;craftWish();craftWish()");assert.equal(adventure.state().counts['noctaris:base'],1);assert.equal(adventure.state().journey.dust,0);
+adventure.run("displayToggle('aqualune:base');displayToggle('voltique:base');displayToggle('cryozar:base')");assert.equal(adventure.state().journey.display.length,3);
+const restart=app(adventure.state());assert.deepEqual(restart.state().counts,adventure.state().counts);assert.equal(restart.run('journey().stage'),4);
+const prior=restart.run('JSON.stringify(save)');restart.ctx.localStorage.setItem=()=>{throw Error('storage full')};restart.run("wishSet('florami','prism')");assert.equal(restart.run('JSON.stringify(save)'),prior);
+console.log('PASS: starter once, element/team gates, all four expeditions, unique rewards, goal dedup, last-copy protection, crafting costs, display limit, restart and storage rollback.');

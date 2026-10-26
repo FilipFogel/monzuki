@@ -22,3 +22,10 @@ New and upgraded installations start with five openings. One opening regenerates
 The Android build integrates Google rewarded TEST ads, with the official demo app/unit IDs. A reward is recorded in native preferences only from the SDK's earned-reward callback, then acknowledged after the web collection saves it. A pending reward survives restart, and duplicate delivery is ignored. Ads are opt-in, unavailable while the balance is full, and never simulated in the browser. If a timer refill fills the balance during an ad, its reward waits for the next free slot.
 
 Production ads are not activated: provide the owner's AdMob App ID and rewarded ad unit ID and configure the production consent/privacy flow before a public release. No production revenue is earned by this test APK.
+
+## First exploration chapter
+The Min resa tab adds a one-time starter (Florami, Voltique or Cryozar), a living collection reserve, four sequential element-gated expeditions with teams of three distinct owned species, and persistent progress under save.journey. Expedition rewards are base Mistleap, Voltique, Frostlyn and Cryozar in order. This is an instant exploration chapter, not a combat system or timed mission. Buddy rank changes with exploration progress. Existing cards and timers are preserved.
+
+A wished-for species and rarity can be crafted for 30/80/250/800 dust. Explicitly exchanging one duplicate grants 3/8/25/80 dust; never the last copy and never during an unfinished pack. Collecting three species in each pack unlocks a showcase environment and 15 dust once. Mutations roll back on persistence failure.
+
+The reserve and showcase reuse the original pack scenes and transparent creatures. Three showcase favorites can be exported to a 1080x900 PNG and shared through the Android chooser (cache-only FileProvider, narrow shares/ path, read-only temporary URI grant). Sharing is only started by the player. Basic/Holo use creature portraits on the export; illustration variants use full card images. Character stories appear in the inspection dialog.
